@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+/* Same palette as the session decks: navy / black / grey / signal yellow */
+@theme {
+  --color-navy: #0B1A33;
+  --color-panel: #112447;
+  --color-ink: #05070C;
+  --color-line: #2A3A5C;
+  --color-text: #F2F4F8;
+  --color-muted: #9AA5B8;
+  --color-accent: #FFC629;
+  --color-ok: #4ADE9A;
+  --color-bad: #FF7A6B;
+  --font-display: "Cabinet Grotesk", system-ui, sans-serif;
+  --font-sans: "General Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html { font-size: 20px; } /* projector-friendly base size */
+body { background: var(--color-navy); color: var(--color-text); font-family: var(--font-sans); }
+
+.card { background: var(--color-panel); border: 2px solid var(--color-line); border-radius: 18px; }
+.card-hot { border-color: var(--color-accent); box-shadow: 0 0 0 8px rgba(255,198,41,.10); }
+.label { font-size: .8rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--color-muted); }
+.btn { display: inline-flex; align-items: center; gap: .5rem; border-radius: 12px; padding: .7rem 1.3rem; font-weight: 600; transition: opacity .15s; }
+.btn:disabled { opacity: .4; cursor: not-allowed; }
+.btn-primary { background: var(--color-accent); color: var(--color-ink); }
+.btn-ghost { border: 2px solid var(--color-line); color: var(--color-text); }
+.btn-danger { border: 2px solid var(--color-bad); color: var(--color-bad); }
+code.f { font-family: var(--font-mono); color: var(--color-accent); background: rgba(255,198,41,.10); padding: 1px 8px; border-radius: 6px; font-size: .9em; }
+
+@keyframes flash { from { background: rgba(255,198,41,.25); } to { background: transparent; } }
+.flash { animation: flash 2s ease-out; }
+@keyframes slidein { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+.slidein { animation: slidein .4s ease-out; }
